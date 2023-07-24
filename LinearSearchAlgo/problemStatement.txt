@@ -1,0 +1,106 @@
+============ ========== ========== Actual Problem Statement ============ ========== ==========
+
+QUESTION 1: Alice has some cards with numbers written on them. She arranges the cards in decreasing order, and lays them out face down 
+in a sequence on a table. She challenges Bob to pick out the card containing a given number by turning over as few cards as possible. 
+Write a function to help Bob locate the card.
+
+------------------------------------------------------------------------------------------------------
+
+# State the problem in simple words =====>>>>>>
+
+We need to write a function/program to find the position of the card/number from the list of numbers/cards arranged in decreasing order. 
+We also need to minimise the number of times to access the elements from list.
+
+------------------------------------------------------------------------------------------------------
+Assume the input and outputs
+
+Input: -
+    cards: List of numbers [13, 11, 10, 7, 5, 3, 1, 0]
+    query: A number, whose position we need to find i.e 7
+
+Output: -
+    position: Index of the given query i.e 3
+
+So now we know our function will take two arguments i.e cards & query and it will return the position.
+
+------------------------------------------------------------------------------------------------------
+# Come up with example inputs and outputs and cover all the possible edge cases =====>>>>>
+
+For the above example consider all the possible edge cases and write it down. 
+    1. The query is in the middle of list
+    2. The query is the first element
+    3. The query is last element
+    4. The list does not contain the query 
+    5. The list contains only the query
+    6. The list is empty
+    7. The list contains repeated numbers
+    8. The number i.e query occurs more than once in the list
+
+------------------------------------------------------------------------------------------------------
+# Come up with the correct solutions and state it in simple words =====>>>>>
+
+Here's how we going to implement it ---
+    1. Create a variable named position and initially its value will be 0
+    2. Check whether the number at the position index equals query
+    3. If it does, then return its index position.
+    4. If it doesn't, then increament the position value by 1 and repeat 2 - 5 steps.
+    5. If the number is not found, return -1
+
+The above points is nothing but we have written the algorithm for our problem Statement.
+
+This particular algorithm is Linear Search algorithm, as it involves searching the element from the list of numbers in a linear way. 
+
+------------------------------------------------------------------------------------------------------
+# Implement the solution and test it with different inputs. Fix bug if any,
+
+------------------------------------------------------------------------------------------------------
+# Analyze the algorithm's complexity and identify inefficiencies, if any.
+
+As we have used Linear search algorithm to solve the problem so its complexity are :---
+    1. Time complexity - O(N)
+    1. Space complexity - O(1)
+
+------------------------------------------------------------------------------------------------------
+# Apply the right technique to overcome the inefficiencies. Repeat the steps 3 to 6
+
+As this step says to apply the right technique but as we can see we are not using the right technique to find the solution. 
+Here we are using linear search which means it will go step by step i.e one by one it will pick the card which is not the right and efficient
+way to solve the problem. 
+
+So we can choose the random card from all the cards and we can now know where are card is lying. We can use Binary search algorithm for 
+efficient solution. Which means we can start with the middle of element and identify or guess on which side we need to keep going and which side
+to eliminate
+
+------------------------------------------------------------------------------------------------------
+# Again follow step 3 i.e ===>>> Come up with the correct solutions and state it in simple words  ====>>>>>
+
+Here's how we can apply Binary search : -----
+    1. find the middle element of list
+    2. Check whether middle element equals query/number
+    3. If it is less than query number, then search the first half of the list
+    4. If it is greater than query number, then search the second half of the list
+    5. If no more elements, return -1
+
+------------------------------------------------------------------------------------------------------
+# Again follow step 4 i.e ====>>> Implement the solution
+
+------------------------------------------------------------------------------------------------------
+# Again follow step 5 i.e ====>>> Analyze the complexity
+
+So here as we  are using binary search so we need to count the number of iterations in the algorithm. So the array size can be N.
+    Initial length = N
+    1. Iteration 1 = N/2
+    2. Iteration 2 = N/4 i.e N/2^2
+    3. Iteration 3 = N/8 i.e N/2^3 i.e N/2*2*2
+    .
+    .
+    N. Iteration k = N/2^k
+
+Atlast we get the final length of array i.e 1
+    N/2^k = 1  =====>>>>> N = 2^k
+ 
+SO taking the logarithms ======  k = log N
+>>>> log refers to log to the base 2
+
+Time complexity for Binary search ===== O(log N)
+Space complexity ====== O(1)

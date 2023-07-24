@@ -1,0 +1,23 @@
+********************************** GENERIC BINARY SEARCH **********************************
+
+The algorithm or the code which we have written for binary search is for that particular problem. But we need to write a generic algorithm
+for binary search for all the problems.
+    1. Come up with the possible conditions to check whether the position is lying in the list and its limits.
+    2. Retrieve the mid point. i.e find the middle element of the list.
+    3. If middle element equals to the query number than return its position
+    4. If answer lies before it than, repeat in the first half of the list.
+    5. If answer lies after it than, repeat in the second half of the list.
+
+Generic Binary Search Funtion =====>>>>>
+
+def binary_search(low, high, condition):
+    while low <= high:
+        mid = (low + high) // 2
+        result = condition(mid)
+        if result == 'found':
+            return mid
+        elif result == 'left':
+            high = mid - 1
+        else:
+            low = mid + 1
+    return -1
