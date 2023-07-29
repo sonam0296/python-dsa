@@ -4,9 +4,9 @@ QUESTION 1: Alice has some cards with numbers written on them. She arranges the 
 in a sequence on a table. She challenges Bob to pick out the card containing a given number by turning over as few cards as possible. 
 Write a function to help Bob locate the card.
 
-------------------------------------------------------------------------------------------------------
+-------------------------------------- SOLUTION -----------------------------------------------
 
-# State the problem in simple words =====>>>>>>
+# State the problem in simple words. Identify the inputs & outputs =====>>>>>>
 
 We need to write a function/program to find the position of the card/number from the list of numbers/cards arranged in decreasing order. 
 We also need to minimise the number of times to access the elements from list.

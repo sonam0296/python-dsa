@@ -1,0 +1,138 @@
+============ ========== ========== Actual Problem Statement ============ ========== ==========
+
+ROTATED LISTS PROBLEM
+
+You are given list of numbers, obtained by rotating a sorted list an unknown number of times. 
+Write a function to determine the minimum number of times the original sorted list was rotated to obtain the given list. 
+Your function should have the worst-case complexity of O(log N), where N is the length of the list. 
+You can assume that all the numbers in the list are unique.
+
+Example: The list [5, 6, 9, 0, 2, 3, 4] was obtained by rotating the sorted list [0, 2, 3, 4, 5, 6, 9] 3 times.
+
+We define "rotating a list" as removing the last element of the list and adding it before the first element. 
+E.g. rotating the list [3, 2, 4, 1] produces [1, 3, 2, 4].
+
+"Sorted list" refers to a list where the elements are arranged in the increasing order e.g. [1, 3, 5, 7].
+
+-------------------------------------- SOLUTION -----------------------------------------------
+
+# State the problem in simple words. Identify the inputs & outputs =====>>>>>>
+
+    - Given a rotated sorted list that was rotated unknown number of times. we need to find minimum number of times the list was rotated.
+
+------------------------------------------------------------------------------------------------------
+Assume the input and outputs
+Inputs - 
+    nums : A rotated sorted list of numbers => `[7, 9, 3, 5, 6]`
+Output -
+    rotations: Number of times the sorted list was rotated => `2`
+
+So based on above input outputs we can create the signature of our function:
+    def count_rotations(nums):
+        pass
+
+------------------------------------------------------------------------------------------------------
+# Come up with example inputs and outputs and cover all the possible edge cases =====>>>>>
+
+    1. A list of size 10 rotated 3 times.
+    2. A list of size 8 rotated 5 times.
+    3. A list that wasn't rotated at all.
+    4. A list that was rotated just once.
+    5. A list that was rotated n-1 times, where n is the size of the list.
+    6. A list that was rotated n times (do you get back the original list here?)
+    7. An empty list.
+    8. A list containing just one element.
+
+test = {
+    'input': {
+        'nums': [19, 25, 29, 3, 5, 6, 7, 9, 11, 14]
+    },
+    'output': 3
+}
+Creating the test cases for all the above edge case ====
+tests = [
+    {
+    'input': {
+        'nums': [8,9,10,1,2,3,4,5,6,7]
+    },
+    'output': 3
+    },
+    {
+    'input': {
+        'nums': [4,5,6,7,8,1,2,3]
+    },
+    'output': 5
+    },
+    {
+    'input': {
+        'nums': [1,2,3,4,5]
+    },
+    'output': 0
+    },
+    {
+    'input': {
+        'nums': [4,1,2,3]
+    },
+    'output': 1
+    },
+    {
+    'input': {
+        'nums': [2,3,4,5,1]
+    },
+    'output': 4
+    },
+    {
+    'input': {
+        'nums': [1,2,3,4,5]  // A list that was rotated n times 
+    },
+    'output': 0
+    },
+    {
+    'input': {
+        'nums': []  
+    },
+    'output': 0
+    },
+    {
+    'input': {
+        'nums': [1] 
+    },
+    'output': 0
+    },
+]
+
+------------------------------------------------------------------------------------------------------
+# Come up with the correct solutions and state it in simple words =====>>>>>
+
+If a list of sorted numbers is rotated k times, then the smallest number will end up at position `k`.
+- So we need to check each number in the list whether it is smaller than the number that comes before it. 
+- Then our answer will the position that smaller number 
+
+------------------------------------------------------------------------------------------------------
+# Implement the solution and test it with different inputs. Fix bug if any,
+
+------------------------------------------------------------------------------------------------------
+# Analyze the algorithm's complexity and identify inefficiencies, if any.
+
+Time complexity - O(N)
+
+------------------------------------------------------------------------------------------------------
+# Apply the right technique to overcome the inefficiencies. Repeat the steps 3 to 6
+
+We will be using Binary search to get the minimum time the number is rotated
+
+------------------------------------------------------------------------------------------------------
+# Again follow step 3 i.e ===>>> Come up with the correct solutions and state it in simple words  ====>>>>>
+
+Here's how we can apply Binary search : -----
+    1. find the middle element of list
+    2. Check whether middle element equals to the ouput
+    3. If it is less than query number, then search the first half of the list
+    4. If it is greater than query number, then search the second half of the list
+    5. If no more elements, return 0
+
+------------------------------------------------------------------------------------------------------
+# Again follow step 4 i.e ====>>> Implement the solution
+
+------------------------------------------------------------------------------------------------------
+# Again follow step 5 i.e ====>>> Analyze the complexity
