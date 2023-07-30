@@ -1,0 +1,40 @@
+#  =======================   Problem Statement   ======================= >>>>>>>>>>>>
+
+# Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+# You may assume that each input would have exactly one solution, and you may not use the same element twice.
+# You can return the answer in any order.
+
+=======================   SOLUTION   ======================= >>>>>>>>>>>>
+
+>> State the problem in your own words ---
+    Write a function to return the index of two numbers whose sum will be equal to the target value.
+
+-----------------------------------------------------------------------------------------
+
+Assume the input and outputs
+Inputs --
+    nums = [2, 4, 9, 11]
+
+Output -- 
+    target = 13
+
+On the basis of above input output we can now have a signature function :=
+
+    def position_of_num(nums, target):
+        pass
+
+------------------------------------------------------------------------------------------------------
+# Come up with example inputs and outputs and cover all the possible edge cases =====>>>>>
+
+    1. Is the list sorted?
+    2. Empty array
+    3. Only single element
+
+------------------------------------------------------------------------------------------------------
+# Come up with the correct solutions and state it in simple words =====>>>>>
+
+To get the index of two elements whose sum can be the target
+    > We need to go one by one and add the elements
+
+------------------------------------------------------------------------------------------------------
+# Implement the solution and test it with different inputs. Fix bug if any,

@@ -26,11 +26,6 @@ print('result: ', result1)
 
 
 def search_target_binary(nums, target):
-    # if len(nums) == 1:
-    #     if nums[0] == target:
-    #         return 0
-    #     else:
-    #         return -1
     low = 0
     high = len(nums) - 1
     while low <= high:
