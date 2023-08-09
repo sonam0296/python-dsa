@@ -12,3 +12,4 @@ def insertion_sort(list):
 list = [10, 4, 5, 25, 1, 5]
 insertion_sort(list)
 print(list)
+ 
